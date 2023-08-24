@@ -6,6 +6,8 @@ import { AppNotFound } from "../views/AppNotFound"
 import { StoreCart } from "../views/StoreCart"
 import { StoreCategories } from "../views/StoreCategories"
 import { StoreCategory } from "../views/StoreCategory"
+import { AccountLogin } from "../views/AccountLogin"
+import { AccountMy } from "../views/AccountMy"
 
 export const AppRouter = () => {
   return (
@@ -21,6 +23,8 @@ export const AppRouter = () => {
               <Route index element = { <StoreCategories /> } />
               <Route path = ":categoryID" element = { <StoreCategory /> } />
             </Route>
+            <Route path = "login" element = { <AccountLogin /> } />
+            <Route path = "account" element = { <AccountMy /> } />
             <Route path = '*' element = { <AppNotFound /> } />
         </Routes>
     </>
