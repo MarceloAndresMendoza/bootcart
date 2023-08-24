@@ -11,7 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Navbar />
-      <AppRouter />
+      <div className='mt-16'>
+        <AppRouter />
+      </div>
       <Footer />
     </BrowserRouter>
   </React.StrictMode>,
