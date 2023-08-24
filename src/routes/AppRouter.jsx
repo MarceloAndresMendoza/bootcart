@@ -5,6 +5,7 @@ import { StoreProduct } from "../views/StoreProduct"
 import { AppNotFound } from "../views/AppNotFound"
 import { StoreCart } from "../views/StoreCart"
 import { StoreCategories } from "../views/StoreCategories"
+import { StoreCategory } from "../views/StoreCategory"
 
 export const AppRouter = () => {
   return (
@@ -16,7 +17,10 @@ export const AppRouter = () => {
               <Route path = ":productID" element = { <StoreProduct /> } />
             </Route>
             <Route path = "cart" element = { <StoreCart /> } />
-            <Route path = "categories" element = { <StoreCategories /> } />
+            <Route path = "categories"  >
+              <Route index element = { <StoreCategories /> } />
+              <Route path = ":categoryID" element = { <StoreCategory /> } />
+            </Route>
             <Route path = '*' element = { <AppNotFound /> } />
         </Routes>
     </>
