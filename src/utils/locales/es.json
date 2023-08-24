@@ -1,3 +1,7 @@
 {
-    "hello-world": "Hello World"
+    "hello-world": "Hello World",
+    "brand-name": "[Nombre Tienda]",
+    "title-store": "Tienda",
+    "title-cart": "Carrito",
+    "title-account": "Cuenta"
 }
