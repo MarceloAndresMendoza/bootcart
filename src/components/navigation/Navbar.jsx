@@ -14,12 +14,12 @@ export const Navbar = () => {
             <NavLink to='store' >{t('title-store')}</NavLink>
           </li>
           <li>
-            <NavLink to='store' >{t('title-cart')}</NavLink>
+            <NavLink to='cart' >{t('title-cart')}</NavLink>
           </li>
         </ul>
         <ul>
           <li>
-            <NavLink to='store' >{t('title-account')}</NavLink>
+            <NavLink to='account' >{t('title-account')}</NavLink>
           </li>
         </ul>
       </div>
