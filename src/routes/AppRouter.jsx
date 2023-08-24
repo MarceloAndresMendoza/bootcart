@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom"
-import { Index } from "../views/Index"
+import { AppIndex } from "../views/AppIndex"
 
 export const AppRouter = () => {
   return (
     <>
         <Routes>
-            <Route path="/" element = { <Index /> } />
+            <Route path="/" element = { <AppIndex /> } />
         </Routes>
     </>
   )
