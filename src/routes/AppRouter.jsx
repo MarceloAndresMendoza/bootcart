@@ -3,6 +3,7 @@ import { AppIndex } from "../views/AppIndex"
 import { StoreMain } from "../views/StoreMain"
 import { StoreProduct } from "../views/StoreProduct"
 import { AppNotFound } from "../views/AppNotFound"
+import { StoreCart } from "../views/StoreCart"
 
 export const AppRouter = () => {
   return (
@@ -13,6 +14,7 @@ export const AppRouter = () => {
               <Route index element = { <StoreMain /> } />
               <Route path = ":productID" element = { <StoreProduct /> } />
             </Route>
+            <Route path = "cart" element = { <StoreCart /> } />
             <Route path = '*' element = { <AppNotFound /> } />
         </Routes>
     </>
