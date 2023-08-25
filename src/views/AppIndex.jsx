@@ -6,7 +6,7 @@ export const AppIndex = () => {
         <>
             <div className="p-4">
                 <h1>
-                    {t('hello-world').repeat(500)}
+                    {t('hello-world')}
                 </h1>
             </div>
         </>
