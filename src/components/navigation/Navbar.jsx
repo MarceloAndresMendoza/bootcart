@@ -5,8 +5,8 @@ export const Navbar = () => {
   const { t, i18n } = useTranslation();
   return (
     <>
-      <div className="fixed top-0 w-full bg-blue-100 h-16 flex items-center px-4 justify-between">
-        <ul className="flex flex-row gap-4">
+      <div className="fixed bottom-0 md:top-0 w-full bg-blue-100 h-16 flex items-center px-2">
+        <ul className="flex flex-row gap-4 w-full md:justify-start justify-between">
           <li>
             <NavLink
               to='/'
@@ -43,15 +43,13 @@ export const Navbar = () => {
               )}
             </NavLink>
           </li>
-        </ul>
-        <ul>
           <li>
             <NavLink
               to='account'
               title={t('title-account')}
             >
               {({ isActive, isPending }) => (
-                <div className={"text-lg text-blue-700 p-4 hover:text-white hover:shadow-md hover:bg-blue-500 " + (isActive ? "text-blue-900 bg-white" : "")}>
+                <div className={"text-lg text-blue-700 p-4 hover:text-white hover:shadow-md hover:bg-blue-500 self-end" + (isActive ? "text-blue-900 bg-white" : "")}>
                   <i className="fa-solid fa-user"></i>
                 </div>
               )}
