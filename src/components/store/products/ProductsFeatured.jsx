@@ -6,14 +6,14 @@ export const ProductsFeatured = () => {
     <>
       <div>
         <h3 className='mx-4 text-lg'>{t('featured-products')}</h3>
-        <div className='flex flex-row overflow-x-auto gap-4 p-4'>
-          <div className='h-32 bg-red-500 w-32 flex-shrink-0'></div>
-          <div className='h-32 bg-green-500 w-32 flex-shrink-0'></div>
-          <div className='h-32 bg-blue-500 w-32 flex-shrink-0'></div>
-          <div className='h-32 bg-yellow-500 w-32 flex-shrink-0'></div>
-          <div className='h-32 bg-red-500 w-32 flex-shrink-0'></div>
-          <div className='h-32 bg-green-500 w-32 flex-shrink-0'></div>
-          <div className='h-32 bg-blue-500 w-32 flex-shrink-0'></div>
+        <div className='flex flex-row overflow-x-auto gap-4 m-4 h-32 md:h-48 pb-2'>
+          <div className='aspect-square bg-red-500 flex-shrink-0'></div>
+          <div className='aspect-square bg-blue-500 flex-shrink-0'></div>
+          <div className='aspect-square bg-green-500 flex-shrink-0'></div>
+          <div className='aspect-square bg-yellow-500 flex-shrink-0'></div>
+          <div className='aspect-square bg-red-500 flex-shrink-0'></div>
+          <div className='aspect-square bg-green-500 flex-shrink-0'></div>
+          <div className='aspect-square bg-blue-500 flex-shrink-0'></div>
         </div>
       </div>
     </>
