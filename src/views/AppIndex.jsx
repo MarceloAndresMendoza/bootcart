@@ -1,14 +1,23 @@
 import { useTranslation } from 'react-i18next';
+import { StoreTitle } from '../components/store/branding/StoreTitle.jsx'
+import { ProductsFeatured } from '../components/store/products/ProductsFeatured.jsx';
+import { StoreIntroduction } from '../components/store/branding/StoreIntroduction.jsx';
+import { CategoriesSmall } from '../components/store/categories/CategoriesSmall.jsx';
+import { StoreInfoIcons } from '../components/store/support/StoreInfoIcons.jsx';
 
 export const AppIndex = () => {
     const {t, i18n} = useTranslation();
     return (
         <>
-            <div className="p-4">
-                <h1>
-                    {t('hello-world').repeat(2000)}
-                </h1>
+            <StoreTitle />
+            <ProductsFeatured />
+            <hr className='mx-4'/>
+            <div className='flex flex-col md:flex-row items-center my-4'>
+                <StoreIntroduction />
+                <StoreInfoIcons />
             </div>
+            <hr className='mx-4'/>
+            <CategoriesSmall />
         </>
     )
 }
