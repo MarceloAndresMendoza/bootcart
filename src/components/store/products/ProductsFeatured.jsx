@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { getProductImage } from '../../../assets/products/imageIndex';
 import { SingleProduct } from '../../ui/SingleProduct';
 
-export const ProductsFeatured = () => {
+export const ProductsFeatured = (props) => {
+  const { small } = props;
   const { t, i18n } = useTranslation();
   const imageList = [];
   for (let i = 1; i <= 14; i++) {
@@ -18,12 +19,11 @@ export const ProductsFeatured = () => {
               return (
                 <div key={index}>
                   <SingleProduct
-                    mobileWidth={32}
-                    desktopWidth={48}
+                    smallMode={small}
                     currentImage={currentImage}
                     productTitle='Product title'
                     productDescription='Product description'
-                    productPrice='$15.000' 
+                    productPrice='$15.000'
                   />
                 </div>
               )
