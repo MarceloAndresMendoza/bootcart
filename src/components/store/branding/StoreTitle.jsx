@@ -1,7 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-export const StoreTitle = () => {
+export const StoreTitle = (props) => {
   const {t, i18n} = useTranslation();
+  const {subtitle} = props;
+  const subtitleText = subtitle ?? t('store-welcome');
   return (
     <>
         <div className='p-4'>
@@ -9,7 +11,7 @@ export const StoreTitle = () => {
                     {t('store-name')}
                 </h1>
                 <h2 className="text-xl">
-                    {t('store-welcome')}
+                    {subtitleText}
                 </h2>
                 <hr className='my-2'/>
             </div>
