@@ -1,19 +1,34 @@
 import { useTranslation } from 'react-i18next';
+import { getProductImage } from '../../../assets/products/imageIndex';
+import { SingleProduct } from '../../ui/SingleProduct';
 
 export const ProductsFeatured = () => {
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
+  const imageList = [];
+  for (let i = 1; i <= 14; i++) {
+    imageList.push(getProductImage(i))
+  }
   return (
     <>
       <div>
         <h3 className='mx-4 text-lg'>{t('featured-products')}</h3>
-        <div className='flex flex-row overflow-x-auto gap-4 m-4 h-32 md:h-48 pb-2'>
-          <div className='aspect-square bg-red-500 flex-shrink-0'></div>
-          <div className='aspect-square bg-blue-500 flex-shrink-0'></div>
-          <div className='aspect-square bg-green-500 flex-shrink-0'></div>
-          <div className='aspect-square bg-yellow-500 flex-shrink-0'></div>
-          <div className='aspect-square bg-red-500 flex-shrink-0'></div>
-          <div className='aspect-square bg-green-500 flex-shrink-0'></div>
-          <div className='aspect-square bg-blue-500 flex-shrink-0'></div>
+        <div className='flex flex-row overflow-x-auto overflow-y-hidden gap-6 m-4 pb-2'>
+          {
+            imageList.map((currentImage, index) => {
+              return (
+                <div key={index}>
+                  <SingleProduct
+                    mobileWidth={32}
+                    desktopWidth={48}
+                    currentImage={currentImage}
+                    productTitle='Product title'
+                    productDescription='Product description'
+                    productPrice='$15.000' 
+                  />
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </>
