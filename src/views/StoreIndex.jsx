@@ -1,6 +1,8 @@
 import { StoreTitle } from "../components/store/branding/StoreTitle"
 import { useTranslation } from 'react-i18next';
 import { Categories } from "../components/store/categories/Categories";
+import { ProductsAll } from "../components/store/products/ProductsAll";
+import { PageTitle } from "../components/ui/smallbits/PageTitle";
 
 export const StoreIndex = () => {
   const {t, i18n} = useTranslation();
@@ -8,8 +10,9 @@ export const StoreIndex = () => {
     <>
       <div>
         <div>
-          <StoreTitle subtitle={t('store-title')}/>
-          <Categories />
+          <PageTitle text={t('store-title')}/>
+          <Categories small={false}/>
+          <ProductsAll />
         </div>
       </div>
     </>
