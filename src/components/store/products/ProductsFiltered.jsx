@@ -3,7 +3,7 @@ import { getProductImage } from '../../../assets/products/imageIndex';
 import { SingleProduct } from '../../ui/SingleProduct';
 import { SectionTitle } from '../../ui/smallbits/SectionTitle';
 
-export const ProductsFeatured = (props) => {
+export const ProductsFiltered = (props) => {
   const { t, i18n } = useTranslation();
   const { small } = props;
   const imageList = [];
