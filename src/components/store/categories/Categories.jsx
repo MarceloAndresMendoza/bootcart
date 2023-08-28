@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 // Testing
 import { getProductImage } from '../../../assets/products/imageIndex';
 import { SingleCategory } from '../../ui/SingleCategory';
+import { SectionTitle } from '../../ui/smallbits/SectionTitle';
 //---end
 
 export const Categories = (props) => {
@@ -18,7 +19,7 @@ export const Categories = (props) => {
         <>
             <div>
                 <div>
-                    <h3 className='mx-4 text-lg'>{t('categories-title')}</h3>
+                    <SectionTitle text={t('categories-title')} />
                     <div className='flex flex-row overflow-x-auto overflow-y-hidden gap-6 m-4 pb-2'>
                         {
                             imageList.map((currentImage, index) => {
