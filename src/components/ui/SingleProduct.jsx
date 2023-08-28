@@ -1,9 +1,22 @@
 export const SingleProduct = (props) => {
-    const {smallMode, currentImage, productTitle, productDescription, productPrice} = props;
-    const boxSize = (smallMode === true) ? ['20', '24'] : ['32', '48'];
+    const { smallMode, currentImage, productTitle, productDescription, productPrice } = props;
+    const boxSize = (smallMode === true) ? [80, 100] : [140, 180];
+    //Tailwind won't let me put this styles as dynamic without messing them, maybe the css preprocessor issue.
     return (
         <>
-            <div className={`aspect-square flex-shrink-0 hover:shadow-md hover:-translate-y-1 transition flex flex-col items-center justify-between w-${boxSize[0]} md:w-${boxSize[1]} rounded-md`}>
+            <style>
+                {`
+                .single-product-container {
+                    width: ${boxSize[0]}px;
+                }
+                @media (min-width: 768px) {
+                    .single-product-container {
+                        width: ${boxSize[1]}px;
+                        }
+                    }
+                `}
+            </style>
+            <div className={`aspect-square flex-shrink-0 hover:shadow-md hover:-translate-y-1 transition flex flex-col items-center justify-between rounded-md single-product-container`}>
                 <div className='h-full flex justify-center flex-col'>
                     <img className='max-w-full' src={currentImage} alt={productTitle} />
                 </div>
