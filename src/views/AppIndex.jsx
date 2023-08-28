@@ -10,7 +10,7 @@ export const AppIndex = () => {
     return (
         <>
             <StoreTitle />
-            <ProductsFeatured />
+            <ProductsFeatured small={false}/>
             <hr className='mx-4'/>
             <div className='flex flex-col md:flex-row items-center my-4'>
                 <StoreIntroduction />
