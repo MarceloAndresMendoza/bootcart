@@ -13,23 +13,28 @@ export const Cart = () => {
 			{
 				"title": "Smartphone XYZ",
 				"shortDescription": "High-performance smartphone",
-				"price": 599000
+				"price": 599000,
+				"id": '12837'
 			}, {
 				"title": "Running Shoes ABC",
 				"shortDescription": "Lightweight running shoes",
-				"price": 89000
+				"price": 89000,
+				"id": '12344'
 			}, {
 				"title": "Laptop DEF",
 				"shortDescription": "Sleek and lightweight laptop",
-				"price": 1099000
+				"price": 1099000,
+				"id": '43443'
 			}, {
 				"title": "Cotton T-Shirt",
 				"shortDescription": "Comfortable cotton t-shirt",
-				"price": 19000
+				"price": 19000,
+				"id": '76553'
 			}, {
 				"title": "Wireless Headphones GHI",
 				"shortDescription": "High-quality wireless headphones",
-				"price": 249000
+				"price": 249000,
+				"id": '09338'
 			}
 		])
 	}, [])
@@ -49,16 +54,9 @@ export const Cart = () => {
 				<tbody>
 					{
 						cartContent.map((currentItem, index) => {
-							const { title, shortDescription, price } = currentItem;
 							return (
 								<tr key={index} className='border-b border-blue-100'>
-									<TableCartRow
-										title={title}
-										shortDescription={shortDescription}
-										images={[]}
-										quantity={t('2')}
-										price={price}
-									/>
+									<TableCartRow product={currentItem} />
 								</tr>
 							)
 						})
