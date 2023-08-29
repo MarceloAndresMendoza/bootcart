@@ -13,25 +13,25 @@ export const TableCartRow = (props) => {
 
     return (
         <>
-            <td className='py-1 px-4 w-2/12 aspect-square bg-red-500'>
+            <td className='py-1 px-4 w-2/12 md:w-2/12 aspect-square bg-red-500'>
                 {images[0]}
             </td>
-            <td className='py-1 px-4 text-blue-500 w-4/12 text-sm font-bold'>
+            <td className='py-1 px-4 text-blue-500 w-3/12 md:w-4/12 text-sm font-bold'>
                 {product.title}
             </td>
-            <td className='py-1 px-4 text-gray-500 w-2/12 text-xs'>
+            <td className='py-1 px-4 text-gray-500 w-2/12 text-xs hidden md:table-cell'>
                 {product.shortDescription}
             </td>
-            <td className='py-1 px-4 text-blue-500 w-1/12'>
+            <td className='py-1 px-4 text-blue-500 w-1/12 md:w-1/12'>
                 {product.quantity}
             </td>
-            <td className='py-1 px-4 text-blue-700 w-1/12'>
+            <td className='py-1 px-4 text-blue-700 w-3/12 md:w-1/12 hidden sm:table-cell'>
                 <div className="flex flex-row justify-between gap-2">
                     <div>{localCurrency}</div>
                     <div>{thousandsSeparate(product.price)}</div>
                 </div>
             </td>
-            <td className='py-1 px-4 text-blue-700 w-1/12'>
+            <td className='py-1 px-4 text-blue-700 w-3/12 md:w-1/12'>
                 <div className="flex flex-row justify-between gap-2 font-bold">
                     <div>{localCurrency}</div>
                     <div>{thousandsSeparate(product.price * product.quantity)}</div>

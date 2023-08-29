@@ -7,7 +7,7 @@ export const StoreCart = () => {
   return (
     <>
       <div className=''>
-        <div className='flex flex-col gap-4 max-w-xl'>
+        <div className='flex flex-col gap-4 max-w-4xl'>
           <PageTitle text={t('my-cart-title')} />
           <UserInfoTable />
           <Cart />

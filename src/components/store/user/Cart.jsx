@@ -67,6 +67,8 @@ export const Cart = () => {
 						})
 					}
 				</tbody>
+			</table>
+			<table className='shadow-sm w-full  border-l-4 border-blue-300'>
 				<tbody className='w-full'>
 					<TableCartTotal price={totalCartPrice} />
 				</tbody>
