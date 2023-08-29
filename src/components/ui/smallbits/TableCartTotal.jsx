@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { thousandsSeparate } from '../../../utils/stringUtils';
 export const TableCartTotal = (props) => {
     // TODO
     const localCurrency = '$';
@@ -12,7 +13,7 @@ export const TableCartTotal = (props) => {
             </td>
             <td className="px-1 flex flex-row justify-between gap-2 w-1/6 text-blue-900 text-lg font-bold py-2">
                 <div>{localCurrency}</div>
-                <div>{price}</div>
+                <div>{thousandsSeparate(price)}</div>
             </td>
         </tr>
     )
