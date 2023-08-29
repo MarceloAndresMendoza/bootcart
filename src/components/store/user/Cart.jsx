@@ -14,27 +14,32 @@ export const Cart = () => {
 				"title": "Smartphone XYZ",
 				"shortDescription": "High-performance smartphone",
 				"price": 599000,
-				"id": '12837'
+				"id": '12837',
+				"quantity": 1
 			}, {
 				"title": "Running Shoes ABC",
 				"shortDescription": "Lightweight running shoes",
 				"price": 89000,
-				"id": '12344'
+				"id": '12344',
+				"quantity": 1
 			}, {
 				"title": "Laptop DEF",
 				"shortDescription": "Sleek and lightweight laptop",
 				"price": 1099000,
-				"id": '43443'
+				"id": '43443',
+				"quantity": 1
 			}, {
 				"title": "Cotton T-Shirt",
 				"shortDescription": "Comfortable cotton t-shirt",
 				"price": 19000,
-				"id": '76553'
+				"id": '76553',
+				"quantity": 3
 			}, {
 				"title": "Wireless Headphones GHI",
 				"shortDescription": "High-quality wireless headphones",
 				"price": 249000,
-				"id": '09338'
+				"id": '09338',
+				"quantity": 2
 			}
 		])
 	}, [])
@@ -42,7 +47,7 @@ export const Cart = () => {
 	useEffect(() => {
 		let price = 0;
 		cartContent.forEach((currentItem) => {
-			price += currentItem.price;
+			price += (currentItem.price * currentItem.quantity);
 		})
 		setTotalCartPrice(price);
 	}, [cartContent])
