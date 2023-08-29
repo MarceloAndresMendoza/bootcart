@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 export const Cart = () => {
 	const { t, i18n } = useTranslation();
 	const [cartContent, setCartContent] = useState([]);
-	const [totalCartPrice, setTotalCartPrice] = useState('$0')
+	const [totalCartPrice, setTotalCartPrice] = useState(0)
 
 	useEffect(() => {
 		setCartContent([
