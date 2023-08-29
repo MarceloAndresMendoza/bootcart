@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { TableTitle } from '../../ui/smallbits/TableTitle';
 import { TableCartRow } from '../../ui/smallbits/TableCartRow';
 import { TableCartTotal } from '../../ui/smallbits/TableCartTotal';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 export const Cart = () => {
 	const { t, i18n } = useTranslation();
 	const [cartContent, setCartContent] = useState([]);
@@ -52,6 +52,24 @@ export const Cart = () => {
 		setTotalCartPrice(price);
 	}, [cartContent])
 
+	const handleQuantityChange = useCallback((value, key) => {
+        setCartContent(prevCartContent => {
+            const updatedCart = prevCartContent.map((item, index) => {
+				// map approach instead of directly mutating the array
+                if (index === key) {
+					if (value === -1 && item.quantity <= 0) {
+						// Prevent decrementing when quantity is already zero
+						return {...item, quantity: item.quantity}
+					  }
+                    return {...item, quantity: item.quantity + value}
+                }
+                return item
+            })
+            return updatedCart
+        })
+    }, [])
+
+
 	return (
 		<div className='px-4'>
 			<table className=' shadow-sm w-full  border-l-4 border-blue-300'>
@@ -61,7 +79,7 @@ export const Cart = () => {
 						cartContent.map((currentItem, index) => {
 							return (
 								<tr key={index} className='border-b border-blue-100'>
-									<TableCartRow product={currentItem} />
+									<TableCartRow product={currentItem} callback={handleQuantityChange} elementkey={index} />
 								</tr>
 							)
 						})
