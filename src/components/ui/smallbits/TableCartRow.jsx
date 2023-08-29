@@ -13,10 +13,10 @@ export const TableCartRow = (props) => {
 
     return (
         <>
-            <td className='py-1 px-4 text-blue-500 w-2/12 aspect-square bg-red-500'>
+            <td className='py-1 px-4 w-2/12 aspect-square bg-red-500'>
                 {images[0]}
             </td>
-            <td className='py-1 px-4 text-gray-500 w-4/12 text-sm'>
+            <td className='py-1 px-4 text-blue-500 w-4/12 text-sm font-bold'>
                 {product.title}
             </td>
             <td className='py-1 px-4 text-gray-500 w-2/12 text-xs'>
