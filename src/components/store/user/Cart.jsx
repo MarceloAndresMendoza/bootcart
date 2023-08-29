@@ -50,7 +50,7 @@ export const Cart = () => {
 	return (
 		<div className='px-4'>
 			<table className=' shadow-sm w-full  border-l-4 border-blue-300'>
-				<TableTitle text={t('table-cart-title')} span={5} />
+				<TableTitle text={t('table-cart-title')} span={6} />
 				<tbody>
 					{
 						cartContent.map((currentItem, index) => {
