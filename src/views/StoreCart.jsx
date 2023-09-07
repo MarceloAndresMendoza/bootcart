@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Cart } from '../components/store/user/Cart';
-import { UserInfoTable } from '../components/store/user/UserInfoTable';
+import { UserInfoTable } from '../components/user/UserInfoTable';
 import { PageTitle } from '../components/ui/smallbits/PageTitle';
 export const StoreCart = () => {
   const { t, i18n } = useTranslation();
