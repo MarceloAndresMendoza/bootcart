@@ -7,6 +7,7 @@ export const AccountSignUp = () => {
   return (
     <>
       <PageTitle text={t('create-new-account-title')} />
+      <div className="text-sm m-4">{t('create-new-account-marketing-message')}</div>
       <SignUpForm />
     </>
   )
