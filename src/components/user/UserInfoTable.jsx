@@ -24,7 +24,6 @@ export const UserInfoTable = () => {
                 <tbody>
                 {userProfile ? (
                         <>
-                            <TableRow label={t('username-label')} text={userProfile.username} />
                             <TableRow label={t('user-email-label')} text={userProfile.email} />
                             <TableRow label={t('user-full-name-label')} text={userProfile.firstName + ' ' + userProfile.lastName} />
                             <TableRow label={t('user-created-date-label')} text={simplifyFormatDate(userProfile.createdAt)} />
