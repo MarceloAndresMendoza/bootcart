@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { tokenCheck } from "../helpers/tokenCheck";
 import { PageTitle } from '../components/ui/smallbits/PageTitle';
 import { LoginForm } from '../components/user/LoginForm';
 import { MyAccount } from '../components/user/MyAccount';
+import { UserContext } from '../contexts/user.context';
 // RESTRICTED
 
 export const AccountMy = () => {
   const { t, i18n } = useTranslation();
-  const [signedInStatus, setSignedInStatus] = useState(false)
-
-  useEffect(() => {
-    const checkToken = async () => {
-      const isLogged = await tokenCheck();
-      setSignedInStatus(isLogged);
-    }
-    checkToken();
-  }, [])
+  // Load user context
+  const userContext = useContext(UserContext);
+  // Import its methods
+  const {
+      isAuthenticated,
+      user,
+      login,
+      logout,
+      getUserInfo
+  } = userContext;
 
   const handleUpdateLoginStatus = (loginResult) => {
     setSignedInStatus(loginResult);
@@ -30,7 +32,7 @@ export const AccountMy = () => {
   return (
     <div>
       <PageTitle text={t('my-account-title')} />
-      {signedInStatus ?
+      {isAuthenticated ?
         (
           <>
             <MyAccount />

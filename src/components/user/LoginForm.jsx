@@ -1,16 +1,34 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { SectionTitle } from '../ui/smallbits/SectionTitle';
 import { login } from '../../helpers/login';
+import { UserContext } from '../../contexts/user.context';
 
 export const LoginForm = ({ callback }) => {
     const { t, i18n } = useTranslation();
+    // Set components variables
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false)
+    // Load user context
+    const userContext = useContext(UserContext);
+    // Import its methods
+    const {
+        isAuthenticated,
+        user,
+        login,
+        logout,
+        getUserInfo
+    } = userContext;
 
+    // Check if user is authenticated on load
+    useEffect(() => {
+        getUserInfo();
+    }, []);
+
+    // Form methods
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -18,12 +36,11 @@ export const LoginForm = ({ callback }) => {
         setIsLoading(true);
         const loginResult = await login(email, password);
         setIsLoading(false);
-        if (loginResult === true) {
-            callback(loginResult);
+        if (isAuthenticated) {
+            alert('Login success');
+            callback();
         } else {
-            // TODO Beautify this alert
-            alert('Error');
-            // --- END
+            alert('Login failed');
         }
     }
     return (

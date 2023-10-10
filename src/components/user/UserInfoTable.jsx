@@ -30,9 +30,9 @@ export const UserInfoTable = () => {
                             <TableRow label={t('user-shopping-cart-label')} text={userProfile.shoppingCart ? t('goto-cart-text') : t('cart-emty-text')} />
                         </>
                     ) : (
-                        <tr>
+                        <>
                             <TableRow label={t('user-not-logged-message')} text={t('please-login-now-text')}/>
-                        </tr>
+                        </>
                     )}
                 </tbody>
             </table>
