@@ -6,18 +6,19 @@ import { Categories } from '../components/store/categories/Categories.jsx';
 import { StoreInfoIcons } from '../components/store/support/StoreInfoIcons.jsx';
 
 export const AppIndex = () => {
-    const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
+
     return (
         <>
             <StoreTitle />
-            <ProductsFeatured small={false}/>
-            <hr className='mx-4'/>
+            <ProductsFeatured small={false} />
+            <hr className='mx-4' />
             <div className='flex flex-col md:flex-row items-center my-4'>
                 <StoreIntroduction />
                 <StoreInfoIcons />
             </div>
-            <hr className='mx-4'/>
-            <Categories small={true}/>
+            <hr className='mx-4' />
+            <Categories small={true} />
         </>
     )
 }

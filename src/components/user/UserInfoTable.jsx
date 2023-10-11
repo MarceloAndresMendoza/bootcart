@@ -23,19 +23,19 @@ export const UserInfoTable = () => {
             <table className=' shadow-sm w-full  border-l-4 border-blue-300'>
                 <TableTitle text={t('table-user-info-title')} />
                 <tbody>
-                {user ? (
+                    {user ? (
                         <>
-                            <TableRow label={t('user-email-label')} text={user.email} /> 
+                            <TableRow label={t('user-email-label')} text={user.email} />
                             <TableRow label={t('user-full-name-label')} text={user.firstName + ' ' + user.lastName} />
                             <TableRow label={t('user-created-date-label')} text={simplifyFormatDate(user.createdAt)} />
                         </>
                     ) : (
                         <>
-                            <TableRow label={t('user-not-logged-message')} text={t('please-login-now-text')}/>
+                            <TableRow label={t('user-not-logged-message')} text={t('please-login-now-text')} />
                         </>
                     )}
                 </tbody>
             </table>
-        </div>
+        </div >
     )
 }

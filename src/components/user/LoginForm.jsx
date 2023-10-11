@@ -47,7 +47,7 @@ export const LoginForm = () => {
         <>
             <SectionTitle text={t('please-login-now-text')} />
             {
-                isLoading ? 
+                isLoading ?
                     <div className='rounded-md m-4 shadow-md p-4 flex justify-center items-center max-w-md h-[200px]'>
                         <div>Espere un momento...</div>
                     </div>

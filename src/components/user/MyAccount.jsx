@@ -12,8 +12,6 @@ export const MyAccount = () => {
     const {
         isAuthenticated,
         user,
-        login,
-        logout,
         getUserInfo
     } = userContext;
 

@@ -4,6 +4,7 @@ import { PageTitle } from '../components/ui/smallbits/PageTitle';
 import { LoginForm } from '../components/user/LoginForm';
 import { MyAccount } from '../components/user/MyAccount';
 import { UserContext } from '../contexts/user.context';
+import { ServerStatus } from '../components/ui/ServerStatus';
 // RESTRICTED
 
 export const AccountMy = () => {
@@ -41,6 +42,7 @@ export const AccountMy = () => {
           <LoginForm />
         )
       }
+      <ServerStatus />
     </div>
   );
 
