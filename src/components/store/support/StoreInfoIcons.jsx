@@ -8,15 +8,15 @@ export const StoreInfoIcons = () => {
                 <div className='flex flex-row justify-between gap-2 text-xs text-gray-400'>
                     <div className='flex flex-row gap-1 items-center'>
                         <div className='h-10 w-10 bg-green-500 flex-shrink-0'></div>
-                        <p>{t('store-info-1')}</p>
+                        <p>{t('info-icons-1')}</p>
                     </div>
                     <div className='flex flex-row gap-1  items-center'>
                         <div className='h-10 w-10 bg-red-500 flex-shrink-0'></div>
-                        <p>{t('store-info-1')}</p>
+                        <p>{t('info-icons-2')}</p>
                     </div>
                     <div className='flex flex-row gap-1 items-center'>
                         <div className='h-10 w-10 bg-yellow-500 flex-shrink-0'></div>
-                        <p>{t('store-info-1')}</p>
+                        <p>{t('info-icons-3')}</p>
                     </div>
                 </div>
             </div>

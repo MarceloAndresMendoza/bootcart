@@ -1,33 +1,33 @@
 import { useTranslation } from 'react-i18next';
 import { TableTitle } from '../ui/smallbits/TableTitle';
 import { TableRow } from '../ui/smallbits/TableRow';
-import { getCurrentUserInfo } from '../../helpers/getCurrentUserInfo';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { simplifyFormatDate } from '../../utils/stringUtils';
+import { UserContext } from '../../contexts/user.context';
 
 export const UserInfoTable = () => {
     const { t, i18n } = useTranslation();
-    const [userProfile, setUserProfile] = useState([]);
-
-    useEffect(() => {
-        const getUserProfile = async () => {
-            const recievedUserInfo = await getCurrentUserInfo();
-            setUserProfile(recievedUserInfo);
-        }
-        getUserProfile();
-    }, [])
+    // Load user context
+    const userContext = useContext(UserContext);
+    // Import its methods
+    const {
+        isAuthenticated,
+        user,
+        login,
+        logout,
+        getUserInfo
+    } = userContext;
 
     return (
         <div className='px-4'>
             <table className=' shadow-sm w-full  border-l-4 border-blue-300'>
                 <TableTitle text={t('table-user-info-title')} />
                 <tbody>
-                {userProfile ? (
+                {user ? (
                         <>
-                            <TableRow label={t('user-email-label')} text={userProfile.email} />
-                            <TableRow label={t('user-full-name-label')} text={userProfile.firstName + ' ' + userProfile.lastName} />
-                            <TableRow label={t('user-created-date-label')} text={simplifyFormatDate(userProfile.createdAt)} />
-                            <TableRow label={t('user-shopping-cart-label')} text={userProfile.shoppingCart ? t('goto-cart-text') : t('cart-emty-text')} />
+                            <TableRow label={t('user-email-label')} text={user.email} /> 
+                            <TableRow label={t('user-full-name-label')} text={user.firstName + ' ' + user.lastName} />
+                            <TableRow label={t('user-created-date-label')} text={simplifyFormatDate(user.createdAt)} />
                         </>
                     ) : (
                         <>

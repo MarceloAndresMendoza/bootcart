@@ -3,5 +3,52 @@
     "brand-name": "[Nombre Tienda]",
     "title-store": "Tienda",
     "title-cart": "Carrito",
-    "title-account": "Cuenta"
+    "title-account": "Cuenta",
+
+    "store-name": "BootCart",
+    "store-title": "Tienda",
+    "store-welcome": "Bienvenido a nuestra tienda en línea",
+    "all-products": "Todos los productos",
+
+    "featured-products": "Productos destacados",
+    "store-introduction-title": "Introducción",
+    "store-introduction-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae nisl eget nunc aliquam aliquet.",
+
+    "categories-title": "Categorías",
+
+    "info-icons-1": "Rapidez",
+    "info-icons-2": "Seguridad",
+    "info-icons-3": "Calidad",
+
+    "my-cart-title": "Mi carrito",
+    "table-cart-title": "Carrito",
+    "table-cart-total-label": "Total",
+
+    "my-account-title": "Mi cuenta",
+    "please-login-now-text": "Iniciar sesión",
+    "email-label": "Correo electrónico",
+    "password-label": "Contraseña",
+    "login-button": "Iniciar sesión",
+    "sign-up-button": "Registrarse",
+
+    "create-new-account-title": "Crear nueva cuenta",
+    "create-new-account-marketing-message": "Crea una cuenta para revisar tus compras, obtener beneficios y administrar tus datos.",
+    "fill_form_to_signup_title": "Complete el formulario para registrarse",
+    "first-name-label": "Nombre",
+    "last-name-label": "Apellido",
+    "login-instead-button": "Cancelar",
+    "first-name-placeholder": "Ingrese su nombre",
+    "last-name-placeholder": "Ingrese su apellido",
+    "email@placeholder.com": "correo@ejemplo.com",
+
+    "cart-emty-text": "Tu carrito está vacío",
+    "cart-x-elements": "{{user.shoppingCart.lenght}} elementos",
+
+    "user-email-label": "Correo electrónico",
+    "user-full-name-label": "Nombre completo",
+    "user-created-date-label": "Fecha de creación",
+
+    "welcome-text-trailing-firstname": "Bienvenido",
+    "table-user-info-title": "Información de usuario",
+    "end-session-button-text": "Cerrar sesión"
 }

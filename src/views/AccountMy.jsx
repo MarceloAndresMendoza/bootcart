@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { tokenCheck } from "../helpers/tokenCheck";
 import { PageTitle } from '../components/ui/smallbits/PageTitle';
 import { LoginForm } from '../components/user/LoginForm';
 import { MyAccount } from '../components/user/MyAccount';
@@ -13,20 +12,15 @@ export const AccountMy = () => {
   const userContext = useContext(UserContext);
   // Import its methods
   const {
-      isAuthenticated,
-      user,
-      login,
-      logout,
-      getUserInfo
+    isAuthenticated,
+    user,
+    login,
+    logout,
+    getUserInfo
   } = userContext;
 
-  const handleUpdateLoginStatus = (loginResult) => {
-    setSignedInStatus(loginResult);
-  }
-
   const handleEndSession = () => {
-    localStorage.removeItem('authtoken');
-    setSignedInStatus(false)
+    logout();
   }
 
   return (
@@ -36,7 +30,7 @@ export const AccountMy = () => {
         (
           <>
             <MyAccount />
-            <div 
+            <div
               className='m-4 text-white cursor-pointer p-2 rounded-md max-w-xs text-center bg-red-500 hover:bg-red-600'
               onClick={handleEndSession}
             >
@@ -44,7 +38,7 @@ export const AccountMy = () => {
             </div>
           </>
         ) : (
-          <LoginForm callback={handleUpdateLoginStatus} />
+          <LoginForm />
         )
       }
     </div>

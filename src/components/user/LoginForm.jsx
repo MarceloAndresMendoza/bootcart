@@ -1,11 +1,17 @@
+// ====================================================
+// Login Form
+// Author: Marcelo Mendoza
+// Created: 2023-08-28
+// Description: Login form for the application
+// Displays to: Unauthenticated users
+// ====================================================
 import { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { SectionTitle } from '../ui/smallbits/SectionTitle';
-import { login } from '../../helpers/login';
 import { UserContext } from '../../contexts/user.context';
 
-export const LoginForm = ({ callback }) => {
+export const LoginForm = () => {
     const { t, i18n } = useTranslation();
     // Set components variables
     const [email, setEmail] = useState('');
@@ -36,12 +42,6 @@ export const LoginForm = ({ callback }) => {
         setIsLoading(true);
         const loginResult = await login(email, password);
         setIsLoading(false);
-        if (isAuthenticated) {
-            alert('Login success');
-            callback();
-        } else {
-            alert('Login failed');
-        }
     }
     return (
         <>
@@ -89,13 +89,13 @@ export const LoginForm = ({ callback }) => {
                             className="rounded-md p-2 w-1/2 bg-blue-500 text-white hover:bg-blue-600"
                             onClick={handleLoginNow}
                         >
-                            {t('login_button')}
+                            {t('login-button')}
                         </button>
                         <NavLink to='/signup' className={'border rounded-md p-2 w-1/2 hover:bg-gray-100 hover:border-transparent'}>
                             <button
                                 className="w-full"
                             >
-                                {t('sign_up_button')}
+                                {t('sign-up-button')}
                             </button>
                         </NavLink>
                     </div>

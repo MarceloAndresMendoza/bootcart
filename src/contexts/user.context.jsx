@@ -37,8 +37,8 @@
 // });
 
 import { createContext, useReducer } from 'react';
-import { useTranslation } from 'react-i18next';
-import { userLogin, verifyToken } from './user.methods';
+import { userLogin, verifyToken, signUpUser } from './user.methods';
+import swal from 'sweetalert';
 
 // Creation of the context
 export const UserContext = createContext();
@@ -55,7 +55,32 @@ const userReducer = (state, action) => {
         case 'USER_UPDATED':
             return { ...state, user: action.payload, isAuthenticated: true };
         case 'USER_GOT_INFO':
-            return { ...state, user: action.payload, isAuthenticated: true };
+            if (action.payload) {
+                return { ...state, user: action.payload, isAuthenticated: true };
+            } else {
+                return { ...state, user: action.payload, isAuthenticated: false };
+            }
+        case 'USER_CREATED':
+            if (action.payload === 409) {
+                swal({
+                    title: 'Usuario ya existe',
+                    text: 'El usuario ya existe, por favor intente con otro correo electrónico o inicie sesión.',
+                    icon: 'warning',
+                    buttons: ['OK'],
+                    dangerMode: true,
+                });
+                return { ...state, user: null, isAuthenticated: false };
+            }
+            if (action.payload === 201) {
+                swal({
+                    title: 'Usuario creado',
+                    text: 'El usuario ha sido creado con éxito, por favor inicie sesión.',
+                    icon: 'success',
+                    buttons: ['OK'],
+                    dangerMode: false,
+                });
+                return { ...state, user: null, isAuthenticated: false };
+            }
         default:
             return state;
     }
@@ -84,8 +109,11 @@ export const UserProvider = ({ children }) => {
         const verified = await verifyToken();
         dispatch({ type: 'USER_GOT_INFO', payload: verified })
     }
+    const signUp = async (dataForm) => {
+        const signedUp = await signUpUser(dataForm);
+        dispatch ({ type: 'USER_CREATED', payload: signedUp })
+    }
 
-    // Return
     return (
         <UserContext.Provider
             value={{
@@ -93,7 +121,8 @@ export const UserProvider = ({ children }) => {
                 user: userState.user,
                 login,
                 logout,
-                getUserInfo
+                getUserInfo,
+                signUp
             }}
         >
             {children}
