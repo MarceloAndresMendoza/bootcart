@@ -46,6 +46,7 @@ export const ProductsAll = (props) => {
                     productTitle={currentProduct.title}
                     productDescription={currentProduct.shortDescription}
                     productPrice={currentProduct.price}
+                    productData={currentProduct}
                   />
                 </div>
               ) : null
