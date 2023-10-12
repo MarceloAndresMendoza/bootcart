@@ -9,7 +9,7 @@
     "store-title": "Tienda",
     "store-welcome": "Bienvenido a nuestra tienda en línea",
     "all-products": "Todos los productos",
-    "welcome-user-prefix": "¡Hola de nuevo, {{name}}!",
+    "welcome-user-prefix": "👋 ¡Hola de nuevo, {{name}}!",
 
     "featured-products": "Productos destacados",
     "store-introduction-title": "Introducción",
@@ -51,5 +51,7 @@
 
     "welcome-text-trailing-firstname": "Bienvenido",
     "table-user-info-title": "Información de usuario",
-    "end-session-button-text": "Cerrar sesión"
+    "end-session-button-text": "Cerrar sesión",
+
+    "loading-placeholder": "Cargando..."
 }

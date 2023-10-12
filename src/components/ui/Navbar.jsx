@@ -6,7 +6,7 @@ export const Navbar = () => {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="fixed bottom-2 md:top-0 rounded-lg overflow-hidden w-11/12 md:w-full bg-[#ffffffcc] h-16 flex backdrop-blur-xl shadow-xl md:shadow-sm md:rounded-none">
+        <div className="fixed z-50 bottom-2 md:top-0 rounded-lg overflow-hidden w-11/12 md:w-full bg-[#ffffffcc] h-16 flex backdrop-blur-xl shadow-xl md:shadow-sm md:rounded-none">
           <ul className="flex flex-row w-full md:justify-start ">
             <li className="flex-grow text-center flex-shrink-0 md:flex-grow-0">
               <NavLink

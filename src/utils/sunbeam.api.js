@@ -5,8 +5,10 @@
 // Description: Load, save and delete files from
 //              the Sunbeam Fileserver API.
 // ==============================================
-const SUNBEAM_ENDPOINT = process.env.SUNBEAM_ENDPOINT;
-const SUNBEAM_API_KEY = process.env.SUNBEAM_API_KEY;
+import axios from 'axios';
+import * as env from '../config/env.js';
+const SUNBEAM_ENDPOINT = env.SUNBEAM_ENDPOINT;
+const SUNBEAM_API_KEY = env.SUNBEAM_API_KEY;
 
 const sunbeamApi = axios.create({
     baseURL: SUNBEAM_ENDPOINT,

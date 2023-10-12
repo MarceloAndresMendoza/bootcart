@@ -55,10 +55,7 @@ export const StoreProvider = ({ children }) => {
 
     const createNewProduct = async (productData) => {
         const product = await createProduct(productData);
-        dispatch({
-            type: 'PRODUCT_CREATED',
-            payload: product,
-        });
+        console.log(products);
     }
 
     const updateExistingProduct = async (productId, productData) => {
@@ -81,6 +78,7 @@ export const StoreProvider = ({ children }) => {
         <StoreContext.Provider
             value={{
                 products: storeState.products,
+                product: storeState.product,
                 loadProducts,
                 loadProduct,
                 createNewProduct,
