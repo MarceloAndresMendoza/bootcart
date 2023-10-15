@@ -8,19 +8,24 @@ import { Navbar } from './components/ui/Navbar.jsx';
 import { Footer } from './components/ui/Footer';
 import { UserProvider } from './contexts/user.context';
 import { StoreProvider } from './contexts/store.context';
+import { CartProvider } from './contexts/cart.context';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <UserProvider>
+    <div className='min-h-screen'>
+      <UserProvider>
         <StoreProvider>
-          <BrowserRouter>
-            <Navbar />
-            <div className='md:mt-16'>
-              <AppRouter />
-            </div>
-            <Footer />
-          </BrowserRouter>
+          <CartProvider>
+            <BrowserRouter>
+              <Navbar />
+              <div className='md:mt-16'>
+                <AppRouter />
+              </div>
+              <Footer />
+            </BrowserRouter>
+          </CartProvider>
         </StoreProvider>
-    </UserProvider>
+      </UserProvider>
+    </div>
   </React.StrictMode>,
 )

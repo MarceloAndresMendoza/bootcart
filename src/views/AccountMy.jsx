@@ -5,6 +5,7 @@ import { LoginForm } from '../components/user/LoginForm';
 import { MyAccount } from '../components/user/MyAccount';
 import { UserContext } from '../contexts/user.context';
 import { ServerStatus } from '../components/ui/ServerStatus';
+import {SUNBEAM_ENDPOINT} from '../config/env';
 // RESTRICTED
 
 export const AccountMy = () => {
@@ -26,6 +27,7 @@ export const AccountMy = () => {
 
   return (
     <div>
+      <img src={`${SUNBEAM_ENDPOINT}/files?filename=1697281811384.jpg`} alt="image-banner"  className='h-40 w-full'/>
       <PageTitle text={t('my-account-title')} />
       {isAuthenticated ?
         (

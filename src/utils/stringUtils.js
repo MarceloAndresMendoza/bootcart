@@ -1,8 +1,12 @@
 export const thousandsSeparate = (value) => {
-    if (typeof value !== 'number') {
-        throw new Error('Input must be a number: ', value);
+    try {
+        if (typeof value !== 'number') {
+            throw new Error('Input must be a number: ', value);
+        }
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    } catch (error) {
+        return 0
     }
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 };
 
 export const simplifyFormatDate = (dateString) => {

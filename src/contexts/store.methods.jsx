@@ -5,7 +5,6 @@
 // Description: Connects to the backend to get,
 //              create, update and delete products.
 // ==============================================
-
 import { axiosClient } from '../config/axios.api.js'
 
 export const getProducts = async () => {

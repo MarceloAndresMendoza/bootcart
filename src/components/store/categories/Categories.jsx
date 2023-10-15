@@ -29,7 +29,7 @@ export const Categories = (props) => {
     const listCategories = () => {
         const categoriesSet = new Set();
         const categories = [];
-        products.forEach((currentProduct, index) => {
+        products?.forEach((currentProduct, index) => {
             const category = currentProduct.category;
             if (!categoriesSet.has(category)) {
                 categoriesSet.add(category);

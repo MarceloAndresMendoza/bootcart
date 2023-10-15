@@ -31,7 +31,11 @@ export const UserInfoTable = () => {
                         </>
                     ) : (
                         <>
-                            <TableRow label={t('user-not-logged-message')} text={t('please-login-now-text')} />
+                            <TableRow
+                                label={t('user-not-logged-message')}
+                                text={t('please-login-now-text')}
+                                link={'/account' } 
+                            />
                         </>
                     )}
                 </tbody>

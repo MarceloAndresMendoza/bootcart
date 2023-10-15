@@ -55,7 +55,7 @@ export const StoreProvider = ({ children }) => {
 
     const createNewProduct = async (productData) => {
         const product = await createProduct(productData);
-        console.log(products);
+        console.log(product);
     }
 
     const updateExistingProduct = async (productId, productData) => {

@@ -2,95 +2,103 @@ import { useTranslation } from 'react-i18next';
 import { TableTitle } from '../../ui/smallbits/TableTitle';
 import { TableCartRow } from '../../ui/smallbits/TableCartRow';
 import { TableCartTotal } from '../../ui/smallbits/TableCartTotal';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useContext } from 'react';
+import { CartContext } from '../../../contexts/cart.context';
+import { StoreContext } from '../../../contexts/store.context';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { PostWebpayPlusOrder } from '../../../utils/webpay.transbank';
 export const Cart = () => {
 	const { t, i18n } = useTranslation();
-	const [cartContent, setCartContent] = useState([]);
-	const [totalCartPrice, setTotalCartPrice] = useState(0)
+	const cartContext = useContext(CartContext);
+	const navigate = useNavigate();
+	// Cart context will contain cart elements for the whole app,
+	// but as simple than the product id and the quantity.
+	const {
+		elements,
+		total,
+		doLoadCart,
+		doClearCart,
+		doAddElementToCart,
+		doUpdateElementInCart,
+		doRemoveElementFromCart,
+	} = cartContext;
 
 	useEffect(() => {
-		setCartContent([
-			{
-				"title": "Smartphone XYZ",
-				"shortDescription": "High-performance smartphone",
-				"price": 599000,
-				"id": '12837',
-				"quantity": 1
-			}, {
-				"title": "Running Shoes ABC",
-				"shortDescription": "Lightweight running shoes",
-				"price": 89000,
-				"id": '12344',
-				"quantity": 1
-			}, {
-				"title": "Laptop DEF",
-				"shortDescription": "Sleek and lightweight laptop",
-				"price": 1099000,
-				"id": '43443',
-				"quantity": 1
-			}, {
-				"title": "Cotton T-Shirt",
-				"shortDescription": "Comfortable cotton t-shirt",
-				"price": 19000,
-				"id": '76553',
-				"quantity": 3
-			}, {
-				"title": "Wireless Headphones GHI",
-				"shortDescription": "High-quality wireless headphones",
-				"price": 249000,
-				"id": '09338',
-				"quantity": 2
-			}
-		])
-	}, [])
-
-	useEffect(() => {
-		let price = 0;
-		cartContent.forEach((currentItem) => {
-			price += (currentItem.price * currentItem.quantity);
-		})
-		setTotalCartPrice(price);
-	}, [cartContent])
-
-	const handleQuantityChange = useCallback((value, key) => {
-        setCartContent(prevCartContent => {
-            const updatedCart = prevCartContent.map((item, index) => {
-				// map approach instead of directly mutating the array
-                if (index === key) {
-					if (value === -1 && item.quantity <= 0) {
-						// Prevent decrementing when quantity is already zero
-						return {...item, quantity: item.quantity}
-					  }
-                    return {...item, quantity: item.quantity + value}
-                }
-                return item
-            })
-            return updatedCart
-        })
-    }, [])
-
+		doLoadCart();
+		// loadProducts();
+	}, []);
+	
+	const handleBuyCart = async (amount) => {
+		const response = await PostWebpayPlusOrder('buy-order-1', 'session-id-1', amount, 'http://192.168.5.2:5173/confirm')
+		navigate(`/webpay/${response.token}`)
+	}
 
 	return (
-		<div className='px-4'>
+		<div className='px-4 pb-4'>
 			<table className=' shadow-sm w-full  border-l-4 border-blue-300'>
-				<TableTitle text={t('table-cart-title')} span={6} />
+				<TableTitle text={t('table-cart-title')} span={7} />
 				<tbody>
 					{
-						cartContent.map((currentItem, index) => {
-							return (
-								<tr key={index} className='border-b border-blue-100'>
-									<TableCartRow product={currentItem} callback={handleQuantityChange} elementkey={index} />
-								</tr>
+						elements?.length > 0 ?
+							elements?.map((element, index) => {
+								return (
+									<tr key={index}>
+										<td className='p-4'>
+											<button
+												className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex justify-center items-center w-10'
+												onClick={() => doRemoveElementFromCart(element)}
+											>
+												<i className='fas fa-trash'></i>
+											</button>
+										</td>
+										<TableCartRow
+											element={element}
+											callback={doUpdateElementInCart}
+										/>
+									</tr>
+								)
+							}) : (
+								<>
+									<tr className=''>
+										<td colSpan='6' className='text-center text-3xl py-4'>
+											{t('table-cart-empty')}
+										</td>
+									</tr>
+									<tr>
+										<td colSpan='6' className='text-center text-xl py-4 text-blue-500 hover:text-blue-600'>
+											<NavLink to='/store'>{t('table-cart-continue-shopping')}</NavLink>
+										</td>
+									</tr>
+								</>
 							)
-						})
 					}
 				</tbody>
 			</table>
 			<table className='shadow-sm w-full  border-l-4 border-blue-300'>
 				<tbody className='w-full'>
-					<TableCartTotal price={totalCartPrice} />
+					<TableCartTotal price={total ?? 0} />
 				</tbody>
 			</table>
-		</div>
+			<table className='w-full'>
+				<tbody className='w-full'>
+					<tr className='w-full'>
+						<td colSpan={8} className='py-4 flex flex-row gap-8 w-full justify-end'>
+							<button
+								className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex justify-center items-center w-40'
+								onClick={() => handleBuyCart(total)}
+							>
+								{t('table-cart-buy')}
+							</button>
+							<button
+								className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex justify-center items-center w-40'
+								onClick={() => doClearCart()}
+							>
+								{t('table-cart-clear')}
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div >
 	)
 }

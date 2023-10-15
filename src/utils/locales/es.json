@@ -13,7 +13,7 @@
 
     "featured-products": "Productos destacados",
     "store-introduction-title": "Introducción",
-    "store-introduction-description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae nisl eget nunc aliquam aliquet.",
+    "store-introduction-description": "Tenemos productos de calidad, con los mejores precios del mercado. ¡No te pierdas nuestras ofertas!",
 
     "categories-title": "Categorías",
 
@@ -53,5 +53,17 @@
     "table-user-info-title": "Información de usuario",
     "end-session-button-text": "Cerrar sesión",
 
-    "loading-placeholder": "Cargando..."
+    "loading-placeholder": "Cargando...",
+    "back-text": "Volver",
+    "add-to-cart": "Agregar al carrito",
+    "search-results": "Buscando",
+    "delete-filters": "Borrar filtros",
+    "search": "Escriba un término...",
+    "search-now-button": "Buscar",
+    "products-search-result": "Resultados",
+    "table-cart-empty": "Tu carrito está vacío",
+    "table-cart-continue-shopping": "Ir a la tienda",
+    "user-not-logged-message": "Sin sesión iniciada",
+    "table-cart-clear": "Vaciar",
+    "table-cart-buy": "Comprar"
 }

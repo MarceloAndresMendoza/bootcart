@@ -13,7 +13,7 @@ export const StoreTitle = (props) => {
           {t('store-name')}
         </h1>
         <h2 className="text-xl">
-          {subtitleText}
+          { subtitleText }
         </h2>
         <hr className='mt-2' />
       </div>
