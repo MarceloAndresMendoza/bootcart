@@ -26,10 +26,10 @@ export const WebPayPlus = () => {
     return (
         <>
             <div className='max-w-xl'>
-                <div className='p-4 flex flex-row md:flex-col gap-4 items-center md:items-start border-b'>
+                <div className='p-4 flex flex-col gap-4 items-center md:items-start border-b'>
                     <button
                         onClick={() => navigate(-1)}
-                        className='bg-red-500 hover:bg-red-200 text-white font-bold py-2 px-4 rounded flex flex-row gap-1 md:gap-4 items-center justify-center w-20 md:w-40'
+                        className='bg-red-500 hover:bg-red-200 text-white font-bold py-2 px-4 rounded flex flex-row gap-1 md:gap-4 items-center justify-center w-40'
                     >
                         <i className='fas fa-arrow-left'></i>
                         <span>Cancelar</span>
